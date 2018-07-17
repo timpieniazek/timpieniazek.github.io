@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Seat Randomizer</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<table>
+		<tr>
+			<td id='1'>Student</td>
+
+
+		</tr>
+		<tr>
+			<td id="2">Student</td>
+			<td id="3">Student</td>
+			<td id="4">Student</td>
+			<td id="5">Student</td>
+			<td id="6">Student</td>
+			<td id="7">Student</td>
+			<td id="8">Student</td>
+			<td id="9">Student</td>
+			
+		</tr>
+		<tr>
+			<td id="10">Student</td>
+			
+		</tr>
+		<tr>
+			<td id="11">Student</td>
+			<td id="12">Student</td>
+			<td id="13">Student</td>
+			<td id="14">Student</td>
+			<td id="15">Student</td>
+			<td id="16">Student</td>
+			<td id="17">Student</td>
+			<td id="18">Student</td>
+			<td id="19">Student</td>
+			
+		</tr>
+	</table>
+
+<script>
+	var students = ["Amna", "Anesha", "Arif",
+					"Brian", "Cameron", "Darby",
+					"Dewey", "Eddy", "Jasmine",
+					"JoRanda", "Kari", "Kris",
+					"Lauren", "Louie", "Virginia",
+					"Sasi", "Sharde", "Shontinique",
+					"Stan"];
+
+	function shuffleArray(array) {
+    for (var i = 0; i < array.length; i++) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+    }
+
+var shuffled = shuffleArray(students);
+
+for (var i = 1; i <= shuffled.length; i++) {
+	console.log(shuffled[i]);
+	// var id = '#'+ i;
+	$("#" + i).text(shuffled[i-1]);
+}
+
+</script>
+
+</body>
+</html>
