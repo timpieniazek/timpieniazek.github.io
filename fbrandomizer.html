@@ -2,39 +2,77 @@
 <html>
 <head>
 	<title>Seat Randomizer</title>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
 	td {
 		border: 1px solid black;
 	}
+	.col {
+		background-color: blue
+		text: "STUDENT";
+	}
 </style>
 
 </head>
-<body>
+<body class="text-center">
 
-	<table>
+	<div class="container">
+		<table class="table">
+<tr class="front-row">
+	<td>
+		<strong>Front Row</strong>
+	</td>
+</tr>
+<tr class="back-row">
+	<td>
+		<strong>Back Row</strong>
+	</td>
+</tr>
+</table>
+	</div>
+
+		<div class="container">
+		<table class="table">
+<tr class="front-row1">
+	<td>
+		<strong>Front Row</strong>
+	</td>
+</tr>
+<tr class="back-row2">
+	<td>
+		<strong>Back Row</strong>
+	</td>
+</tr>
+</table>
+	</div>
+
+<div class="container">
+
+
+
+	<table class="table">
 		<tr>
-			<td id='1'>Student</td>
-
-
+			
 		</tr>
 		<tr>
-			<td id="2">Student</td>
+			<td id="7">Student</td>
 			<td style="border:none"></td>
+			<td id="1">Student</td>
+			<td id="2">Student</td>
 			<td id="3">Student</td>
 			<td id="4">Student</td>
 			<td id="5">Student</td>
 			<td id="6">Student</td>
-			<td id="7">Student</td>
+			<td style="border:none"></td>
+			
+		</tr>
+		<tr>
 			<td id="8">Student</td>
+			
+		</tr>
+		<tr>
 			<td id="9">Student</td>
-			
-		</tr>
-		<tr>
 			<td id="10">Student</td>
-			
-		</tr>
-		<tr>
 			<td id="11">Student</td>
 			<td id="12">Student</td>
 			<td id="13">Student</td>
@@ -42,20 +80,57 @@
 			<td id="15">Student</td>
 			<td id="16">Student</td>
 			<td id="17">Student</td>
-			<td id="18">Student</td>
-			<td id="19">Student</td>
 			
 		</tr>
 	</table>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
+
+	var studObject = { "Andrew Foley" :	"https://github.com/foleya/",
+"Anesha	Robinson-Jenkins" :	"https://github.com/arjenkins/",
+"Arif Istiaque" : "https://github.com/DeveloperArif/",
+"Brian Seyferth" : "https://github.com/bseyferth/",
+"Cameron Barnes" : "https://github.com/cameronindetroit/",
+"Darby O'Rear" : "https://github.com/DarbyORear/",
+"Eddy Carrington" : "https://github.com/edwardessex/",
+"Jasmine Allen" : "https://github.com/synee00/",
+"JoRanda Chapman" :"https://github.com/jorandac/",
+"Kari McFarlin" : "https://github.com/morri196/",
+"Kris Runde" :"https://github.com/RundeCrew/",
+"Lauren Shindo" : "https://github.com/CJSchindler/",
+"Louie Privette" : "https://github.com/LitGibbonwithHorseyLC/",
+"Ma Virginia Cordero" : "https://github.com/ginnymaria/",
+"Sasi Kumarasamy" : "https://github.com/Simeon-Kraft/",
+"Sharde Smith" : "https://github.com/sharde92/",
+"Shontinique Uqdah" : "https://github.com/Nightowl93/",
+"Stan Bradbury" : "https://github.com/StandenB/" }
+
+	var studObject2 = { "Dewey" :	"https://github.com/foleya/",
+"Anesha" :	"https://github.com/arjenkins/",
+"Arif" : "https://github.com/DeveloperArif/",
+"Brian" : "https://github.com/bseyferth/",
+"Cameron" : "https://github.com/cameronindetroit/",
+"Darby" : "https://github.com/DarbyORear/",
+"Eddy" : "https://github.com/edwardessex/",
+"Jasmine" : "https://github.com/synee00/",
+"JoRanda" :"https://github.com/jorandac/",
+"Kari" : "https://github.com/morri196/",
+"Kris" :"https://github.com/RundeCrew/",
+"Lauren" : "https://github.com/CJSchindler/",
+"Virginia" : "https://github.com/ginnymaria/",
+"Sasi" : "https://github.com/Simeon-Kraft/",
+"Sharde" : "https://github.com/sharde92/",
+"Shontinique" : "https://github.com/Nightowl93/",
+"Stan" : "https://github.com/StandenB/" }
+
 	var students = ["Amna", "Anesha", "Arif",
 					"Brian", "Cameron", "Darby",
 					"Dewey", "Eddy", "Jasmine",
 					"JoRanda", "Kari", "Kris",
-					"Lauren", "Louie", "Virginia",
+					"Lauren", "Virginia",
 					"Sasi", "Sharde", "Shontinique",
 					"Stan"];
 
@@ -66,16 +141,67 @@
     }
     return array;
     }
+    function gitHubLink(url, name) {
+    	return "<a href=\"" + url + "\">" + name + "</a>";
+    }
+
+    function buttonName(name) {
+    	return "<button class=\"btn\">" + name + "</button>";
+    }
 
 var shuffled = shuffleArray(students);
+
+var frontRowSeats = 6;
+
+for (var i = 0; i < frontRowSeats; i++) {
+	console.log(shuffled[i]);
+	// var id = '#'+ i;
+	$(".front-row").append("<td>"+shuffled[i]+"</td>");
+}
+for (var i = frontRowSeats; i < shuffled.length; i++) {
+	$(".back-row").append("<td>"+shuffled[i]+"</td>");
+}
+
+for (var i = 0; i < frontRowSeats; i++) {
+	console.log(shuffled[i]);
+	// var id = '#'+ i;
+	$(".front-row1").append("<td>"+gitHubLink(studObject2[students[i]], students[i])+"</td>");
+}
+for (var i = frontRowSeats; i < shuffled.length; i++) {
+	$(".back-row2").append("<td>"+gitHubLink(studObject2[students[i]], students[i])+"</td>");
+}
+
 
 for (var i = 1; i <= shuffled.length; i++) {
 	console.log(shuffled[i]);
 	// var id = '#'+ i;
-	$("#" + i).text(shuffled[i-1]);
+	$("#" + i).html(gitHubLink(studObject2[i-1], buttonName(students[i-1])));
 }
 
 </script>
+
+
+<br><br><p>
+
+Andrew	Foley	https://github.com/foleya/
+Anesha	Robinson-Jenkins	https://github.com/arjenkins/
+Arif	Istiaque	https://github.com/DeveloperArif/
+Brian	Seyferth	https://github.com/bseyferth/
+Cameron	Barnes	https://github.com/cameronindetroit/
+Darby	O'Rear	https://github.com/DarbyORear/
+Eddy	Carrington	https://github.com/edwardessex/
+Jasmine	Allen	https://github.com/synee00/
+JoRanda	Chapman	https://github.com/jorandac/
+Kari	McFarlin	https://github.com/morri196/
+Kris	Runde	https://github.com/RundeCrew/
+Lauren	Shindo	https://github.com/CJSchindler/
+Louie	Privette	https://github.com/LitGibbonwithHorseyLC/
+Ma Virginia	Cordero	https://github.com/ginnymaria/
+Sasi	Kumarasamy	https://github.com/Simeon-Kraft/
+Sharde	Smith	https://github.com/sharde92/
+Shontinique	Uqdah	https://github.com/Nightowl93/
+Stan	Bradbury	https://github.com/StandenB/
+</p>
 
 </body>
 </html>
