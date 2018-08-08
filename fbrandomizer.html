@@ -4,58 +4,51 @@
 	<title>Seat Randomizer</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
+	body {
+		background-color: rgb(255,255,30);
+	}
+	table {
+		table-layout: fixed;
+		width: 100%;
+	}
 	td {
 		border: 1px solid black;
+		width:10%;
+		height: 40px;
+		padding: 0;
 	}
-	.col {
-		background-color: blue
-		text: "STUDENT";
+
+/*button padding allowed me to center long button text*/
+	.btn-white{		
+		background-color:white;
+		padding:0;
+		width: 100%;
+		height: 100%;
 	}
+	h1, h3 {
+		font-weight: bold;
+		color: magenta;
+	}
+	h3 {
+		font-style: italic;
+	}
+
 </style>
 
 </head>
 <body class="text-center">
 
-	<div class="container">
-		<table class="table">
-<tr class="front-row">
-	<td>
-		<strong>Front Row</strong>
-	</td>
-</tr>
-<tr class="back-row">
-	<td>
-		<strong>Back Row</strong>
-	</td>
-</tr>
-</table>
+	<div class="container mt-5">
+		<h1>Facebook Java July 2018</h3>
+		<h3>SeatRandomizer</h3>
 	</div>
 
-		<div class="container">
-		<table class="table">
-<tr class="front-row1">
-	<td>
-		<strong>Front Row</strong>
-	</td>
-</tr>
-<tr class="back-row2">
-	<td>
-		<strong>Back Row</strong>
-	</td>
-</tr>
-</table>
-	</div>
+<br><br>
 
-<div class="container">
-
-
-
-	<table class="table">
+<div class="container mt-5">
+	<table>
 		<tr>
-			
-		</tr>
-		<tr>
-			<td id="7">Student</td>
+			<td style="border:none"></td>
 			<td style="border:none"></td>
 			<td id="1">Student</td>
 			<td id="2">Student</td>
@@ -67,10 +60,11 @@
 			
 		</tr>
 		<tr>
-			<td id="8">Student</td>
+			<td id="7">Student</td>
 			
 		</tr>
 		<tr>
+			<td id="8">Student</td>
 			<td id="9">Student</td>
 			<td id="10">Student</td>
 			<td id="11">Student</td>
@@ -142,11 +136,11 @@
     return array;
     }
     function gitHubLink(url, name) {
-    	return "<a href=\"" + url + "\">" + name + "</a>";
+    	return "<a href=\"" + url + "\" target=\"_blank\">" + name + "</a>";
     }
 
     function buttonName(name) {
-    	return "<button class=\"btn\">" + name + "</button>";
+    	return "<button class=\"btn btn-white\">" + name + "</button>";
     }
 
 var shuffled = shuffleArray(students);
@@ -165,7 +159,7 @@ for (var i = frontRowSeats; i < shuffled.length; i++) {
 for (var i = 0; i < frontRowSeats; i++) {
 	console.log(shuffled[i]);
 	// var id = '#'+ i;
-	$(".front-row1").append("<td>"+gitHubLink(studObject2[students[i]], students[i])+"</td>");
+	$(".front-row1").append("<td style=\"padding:0\">"+gitHubLink(studObject2[students[i]], students[i])+"</td>");
 }
 for (var i = frontRowSeats; i < shuffled.length; i++) {
 	$(".back-row2").append("<td>"+gitHubLink(studObject2[students[i]], students[i])+"</td>");
@@ -175,13 +169,12 @@ for (var i = frontRowSeats; i < shuffled.length; i++) {
 for (var i = 1; i <= shuffled.length; i++) {
 	console.log(shuffled[i]);
 	// var id = '#'+ i;
-	$("#" + i).html(gitHubLink(studObject2[i-1], buttonName(students[i-1])));
+	$("#" + i).html(gitHubLink(studObject2[students[i-1]], buttonName(students[i-1])));
 }
 
 </script>
 
-
-<br><br><p>
+<!-- <p>
 
 Andrew	Foley	https://github.com/foleya/
 Anesha	Robinson-Jenkins	https://github.com/arjenkins/
@@ -201,7 +194,7 @@ Sasi	Kumarasamy	https://github.com/Simeon-Kraft/
 Sharde	Smith	https://github.com/sharde92/
 Shontinique	Uqdah	https://github.com/Nightowl93/
 Stan	Bradbury	https://github.com/StandenB/
-</p>
+</p> -->
 
 </body>
 </html>
