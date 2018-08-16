@@ -1,0 +1,19 @@
+
+body {
+	background-color: lightgray;
+	text-align: center;
+}
+button {
+	height: 100%;
+	width: 100%;
+}
+#cell {
+	height: 33px;
+	width: 33px;
+}
+.cell {
+	background-color: lightgrey;
+	border: 1px solid black;
+	height: 33px;
+	width: 33px;
+}
