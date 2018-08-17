@@ -1,19 +1,20 @@
-
+table {
+    margin-left:auto; 
+    margin-right:auto;
+}
 body {
-	background-color: lightgray;
+	background-color: lightcyan;
 	text-align: center;
 }
-button {
+.cell button {
 	height: 100%;
 	width: 100%;
 }
-#cell {
-	height: 33px;
-	width: 33px;
+#minefield {
+	margin: 0 auto;
 }
-.cell {
-	background-color: lightgrey;
-	border: 1px solid black;
+.cell, .test {
+	padding: 0;
 	height: 33px;
 	width: 33px;
 }

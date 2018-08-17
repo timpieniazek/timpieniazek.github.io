@@ -2,7 +2,9 @@
 <html>
 <head>
 	<title>MINEFIELD</title>
+	<!-- <link rel="stylesheet" type="text/css" href="minefield/mine.css"> -->
 	<link rel="stylesheet" type="text/css" href="mine.css">
+
 </head>
 <body>
 
@@ -10,6 +12,9 @@
 		MINEFIELD
 	</h3>
 	
+	<h6>test:</h6>
+
+	<div id="minefield2"></div>
 	<table align="center">
 		<tr>
 			<td id="one" class="cell"></td>
@@ -30,6 +35,11 @@
 
 	<br>
 
+	Rows: <input id="rows" type="number" name="rows" min="1" max="20" value="5">
+	Cols: <input id="cols" type="number" name="cols" min="1" max="20" value="5">
+	<input type="button" onclick="bar()" value="Click me!">
+
+	<div id="minefield"></div>
 	<table align="center" id="MINEFIELD">
 	</table>
 
@@ -38,7 +48,9 @@
 
 
 
+<!-- <script type="text/javascript" src="minefield/mine.js"></script> -->
 <script type="text/javascript" src="mine.js"></script>
+<script type="text/javascript" src="random.js"></script>
 
 </body>
 </html>
