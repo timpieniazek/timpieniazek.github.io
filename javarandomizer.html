@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Seat Randomizer</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+	body {
+		background-color: lightgray;
+	}
+	table {
+		table-layout: fixed;
+		width: 100%;
+	}
+	td {
+		border: 1px solid black;
+		width:10%;
+		height: 40px;
+		padding: 0;
+	}
+
+/*button padding allowed me to center long button text*/
+	.btn-white{		
+		background-color:white;
+		padding:0;
+		width: 100%;
+		height: 100%;
+	}
+	.jumbotron h1 {
+				font-weight: bold;
+		color: orange;
+	}
+	h3, h2 {
+		font-weight: bold;
+		color: black;
+	}
+	h2 {
+		font-style: italic;
+	}
+	j-yellow {
+		background-color: yellow;
+	}
+
+</style>
+
+</head>
+<body class="text-center">
+	<div class="container mt-5">
+<div style="background:#FFFF33" class="jumbotron j-yellow mt-5">
+	<div class="container mt-5">
+		<h1 class="mt-5">Java October 2018</h1>
+		<h2>SeatRandomizer</h2>
+	</div>
+</div>
+
+</div>
+<br><br>
+
+<div class="container mt-5">
+	<table>
+		<tr>
+			<td id="1">Student</td>
+			<td id="2">Student</td>
+			<td style="border:none"></td>
+			<td id="3">Student</td>
+			<td id="4">Student</td>
+		</tr>
+		<tr>
+			<td style="border:none"></td>
+		</tr>
+		<tr>
+			<td id="5">Student</td>
+			<td id="6">Student</td>
+			<td style="border:none"></td>
+			<td id="7">Student</td>
+			<td id="8">Student</td>
+		</tr>
+		<tr>
+			<td style="border:none"></td>
+		</tr>
+		<tr>
+			<td id="9">Student</td>
+			<td id="10">Student</td>
+			<td style="border:none"></td>
+			<td id="11">Student</td>
+			<td id="12">Student</td>
+		</tr>
+		<tr>
+			<td style="border:none"></td>
+		</tr>
+		<tr>
+			<td id="13">Student</td>
+			<td id="14">Student</td>
+			<td style="border:none"></td>
+			<td id="15">Student</td>
+			<td id="16">Student</td>
+		</tr>
+	</table>
+
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+	var studObject2 = { "Aaliyah Hussain" :	"https://github.com/Aaliyahhussain/",
+"Adan" :	"https://github.com/afreg75/",
+"Binika" : "https://github.com/binikaa/",
+"Brian" : "https://github.com/BrianEazer2017/",
+"Bryan" : "https://github.com/bryan3071/",
+"Christa" : "https://github.com/ChristaStephens/",
+"Edward" : "https://github.com/EasyDanger/",
+"Jacob" : "https://github.com/jmillercode/",
+"Mariah" :"https://github.com/mariajaja/",
+"Marque" : "https://github.com/Marqueb82/",
+"Michael" :"https://github.com/mbkincaid",
+"Romel" : "https://github.com/RomelLevy/",
+"Simeon" : "https://github.com/Simeon-Kraft/",
+"Sophia" : "https://github.com/ssahouri/",
+"Tae" : "https://github.com/Taek713/",
+"Twani" : "https://github.com/twanidhar/"};
+
+	var students = ["Aaliyah", "Adan", "Binika",
+					"Brian", 
+					"Bryan", "Christa", "Edward",
+					"Jacob", "Mariah", "Marque",
+					"Michael", "Romel",
+					"Simeon", "Sophia", "Tae",
+					"Twani"];
+
+
+
+
+	function shuffleArray(array) {
+    for (var i = 0; i < array.length; i++) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+    }
+    function gitHubLink(url, name) {
+    	return "<a href=\"" + url + "\" target=\"_blank\">" + name + "</a>";
+    }
+
+    function buttonName(name) {
+    	return "<button class=\"btn btn-white\">" + name + "</button>";
+    }
+
+var shuffled = shuffleArray(students);
+
+var frontRowSeats = 6;
+
+for (var i = 0; i < frontRowSeats; i++) {
+	console.log(shuffled[i]);
+	// var id = '#'+ i;
+	$(".front-row").append("<td>"+shuffled[i]+"</td>");
+}
+for (var i = frontRowSeats; i < shuffled.length; i++) {
+	$(".back-row").append("<td>"+shuffled[i]+"</td>");
+}
+
+for (var i = 0; i < frontRowSeats; i++) {
+	console.log(shuffled[i]);
+	// var id = '#'+ i;
+	$(".front-row1").append("<td style=\"padding:0\">"+gitHubLink(studObject2[students[i]], students[i])+"</td>");
+}
+for (var i = frontRowSeats; i < shuffled.length; i++) {
+	$(".back-row2").append("<td>"+gitHubLink(studObject2[students[i]], students[i])+"</td>");
+}
+
+
+for (var i = 1; i <= shuffled.length; i++) {
+	console.log(shuffled[i]);
+	// var id = '#'+ i;
+	$("#" + i).html(gitHubLink(studObject2[students[i-1]], buttonName(students[i-1])));
+}
+
+</script>
+
+
+
+</body>
+</html>
