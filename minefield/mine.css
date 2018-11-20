@@ -3,18 +3,23 @@ table {
     margin-right:auto;
 }
 body {
-	background-color: lightcyan;
+	background-color: lightgray;
 	text-align: center;
 }
-.cell button {
+button {
 	height: 100%;
 	width: 100%;
 }
 #minefield {
 	margin: 0 auto;
 }
-.cell, .test {
-	padding: 0;
+#cell {
+	height: 33px;
+	width: 33px;
+}
+.cell {
+	background-color: lightgrey;
+	border: 1px solid black;
 	height: 33px;
 	width: 33px;
 }

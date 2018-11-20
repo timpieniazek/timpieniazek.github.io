@@ -1,10 +1,10 @@
 
-setmines(5,5,5);
+var testrand = setmines(5,5,5);
 
 create2(3,3);
 
 function create2(row, col){
-    var minefield = "<table>";
+    var minefield = document.createElement("table");
     console.log(minefield);
 
     for (let index = 0; index < row; index++) {
@@ -12,13 +12,14 @@ function create2(row, col){
         for (let index = 0; index < col; index++) {
             var td = document.createElement("td");
             td.className = "test";
+            td.innerHTML=testrand[i][j];
             tr.append(td);        
         }
-        minefield += tr.outerHTML;   
+        minefield.append(tr);   
     }
     // console.log(minefield += "</table>");
     // console.log(document.getElementById("minefield2"));
-    document.getElementById("minefield2").innerHTML = minefield;
+    document.getElementById("minefield2").innerHTML = minefield.outerHTML;
     fill2();
     
 }
@@ -26,20 +27,25 @@ function fill2() {
 
     var cells = document.getElementsByClassName("test");
 
-    for (let index = 0; index < cells.length; index++) {
+    for (var item of cells) {
     cells[0].innerHTML = "test";
 }
 
 }
 
+function cooltest(x,y,z) {
+    return (x*y)-z;
+}
+
+
+
 function setmines(x, y, z) {
     var arr = shuffleArray(minearray((x*y-z), z));
     var minegrid = [];
-    var count = 0;
     for (var i = 0; i < x; i++) {
         var row = [];
         for (var j = 0; j < y; j++) {
-            row.push(arr[count++]);
+            row.push(arr[i * x + j]);
         }
         minegrid.push(row);
     }
